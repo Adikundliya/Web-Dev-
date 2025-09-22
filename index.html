@@ -19,19 +19,24 @@
   </div>
   <script>
     function addTask() {
-      var input=document.getElementById('taskInput');
-      var val=input.value.trim();
-      if(val==='') return;
-      var ul=document.getElementById('taskList');
-      var li=document.createElement('li');
-      li.textContent=val;
-      var btn=document.createElement('button');
-      btn.textContent='Delete task.';
-      btn.onclick=function(){ul.removeChild(li);};
+      var input = document.getElementById('taskInput');
+      var val = input.value.trim();
+      if(val === '') return;
+      var ul = document.getElementById('taskList');
+      var li = document.createElement('li');
+      li.textContent = val + ' ';
+      var btn = document.createElement('button');
+      btn.textContent = 'Delete';
+      btn.onclick = function() { deleteTask(li); };
       li.appendChild(btn);
       ul.appendChild(li);
-      input.value='';
+      input.value = '';
+    }
+    function deleteTask(taskItem) {
+      var ul = document.getElementById('taskList');
+      ul.removeChild(taskItem);
     }
   </script>
 </body>
 </html>
+
