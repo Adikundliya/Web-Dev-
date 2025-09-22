@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Aditya Kundliya 25BAI10634 </title>
+  <style>
+    body {font-family:'Times New Roman', Times, serif;}
+    .container {display: flex;}
+    .left {margin-right: 50px;}
+    button {margin-left: 20px;}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left">
+      <input id="taskInput" placeholder="Type the task to be added...">
+      <button onclick="addTask()">Add task!</button>
+      <ul id="taskList"></ul>
+    </div>
+  </div>
+  <script>
+    function addTask() {
+      var input=document.getElementById('taskInput');
+      var val=input.value.trim();
+      if(val==='') return;
+      var ul=document.getElementById('taskList');
+      var li=document.createElement('li');
+      li.textContent=val;
+      var btn=document.createElement('button');
+      btn.textContent='Delete task.';
+      btn.onclick=function(){ul.removeChild(li);};
+      li.appendChild(btn);
+      ul.appendChild(li);
+      input.value='';
+    }
+  </script>
+</body>
+</html>
